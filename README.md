@@ -19,5 +19,19 @@ DISCORDJOINPAGE_HCAPTCHA_SITE_KEY
 DISCORDJOINPAGE_HCAPTCHA_SITE_SECRET
 ```
 
+# Using the official Docker image
+
+We provide a prebuilt Docker image to use, you might however want to overwrite our WWW directory.
+
+```bash
+docker run \
+  -e DISCORDJOINPAGE_TOKEN=<token> \
+  -e DISCORDJOINPAGE_CHANNEL_ID=<id> \
+  -e DISCORDJOINPAGE_HCAPTCHA_SITE_KEY=<site key> \
+  -e DISCORDJOINPAGE_HCAPTCHA_SITE_SECRET=<site secret> \
+  -v www:/go/src/github.com/meyskens/discord-join-page/www \ # override the website with your own template 
+  ghcr.io/meyskens/discord-invite-page:v0.1.0
+```
+
 ## Real world examples
 * [IT Factory Discord](https://discord.itf.to)
